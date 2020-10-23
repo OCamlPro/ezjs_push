@@ -18,11 +18,6 @@
  (synopsis "Bindings for Push Notification")
  (description "Bindings for Push Notification")
  (depends
-  (ocaml
-   (>= 4.05))
-  (dune
-   (>= 2.0))
-  (js_of_ocaml
-   (>= 3.6))
-  (js_of_ocaml-ppx
-   (>= 3.6))))
+  (ocaml (>= 4.05))
+  (dune (>= 2.0))
+  ezjs_min))

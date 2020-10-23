@@ -10,8 +10,7 @@ bug-reports: "https://github.com/ocamlpro/ezjs_push/issues"
 depends: [
   "ocaml" {>= "4.05"}
   "dune" {>= "2.0"}
-  "js_of_ocaml" {>= "3.6"}
-  "js_of_ocaml-ppx" {>= "3.6"}
+  "ezjs_min"
 ]
 build: [
   ["dune" "subst"] {pinned}

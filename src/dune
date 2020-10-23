@@ -1,5 +1,4 @@
 (library
  (public_name ezjs_push)
- (preprocess
-  (pps js_of_ocaml-ppx))
- (libraries js_of_ocaml))
+ (preprocess (pps js_of_ocaml-ppx))
+ (libraries ezjs_min bigstring base64))
