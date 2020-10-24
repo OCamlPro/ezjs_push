@@ -1,6 +1,5 @@
-open Ezjs_min.Js
-open Ezjs_min.Promise
-module Typed_array = Js_of_ocaml.Typed_array
+open Ezjs_min
+open Promise
 
 class type extendableEvent = object
   inherit Dom_html.event
@@ -78,7 +77,7 @@ class type pushSubscription = object
   method endpoint : js_string t readonly_prop
   method exiprationTime : number t opt readonly_prop
   method options : subscription_options t readonly_prop
-  method getKey : Typed_array.arrayBuffer t meth
+  method getKey : js_string t -> Typed_array.arrayBuffer t meth
   method toJSON : json t meth
   method unsubscribe : bool t promise t meth
 end
@@ -317,8 +316,8 @@ let get_subscription ?(none=fun () -> log_str "No subscription") reg f =
   let push_manager = push_manager reg in
   jthen push_manager##getSubscription (fun subs -> Opt.case subs none f)
 
-let subscription ?(verbose=false) ?options reg f =
-  get_subscription ~none:(fun () -> subscribe ?options reg f) reg f
+let subscription ?verbose ?options reg f =
+  get_subscription ~none:(fun () -> subscribe ?verbose ?options reg f) reg f
 
 let make_notification_action {na_action; na_title; na_icon} : notification_action t =
   object%js

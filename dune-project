@@ -20,4 +20,6 @@
  (depends
   (ocaml (>= 4.05))
   (dune (>= 2.0))
-  ezjs_min))
+  (ezjs_min (>= 0.2))
+  bigstring
+  (base64 (>= 3.2))))
